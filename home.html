@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Client</title>
+    </head>
+    <body>
+        {% module xsrf_form_html() %}
+        <form class="" action="users" method="post">
+            First Name: <input type="text" name="firstname" required/>
+            Last Name: <input type="text" name="lastname" required/>
+            <input type="submit" value="Add New Data"/>
+            {% module xsrf_form_html() %}
+        </form>
+        <div class="">
+            {% for user in users %}
+                <ul>
+                    <li>{{ user["id"] }}</li>
+                    <li>{{ user["fName"] }}</li>
+                    <li>{{ user["lName"] }}</li>
+                </ul>
+                <p>---------------------------------</p>
+            {% end %}
+        </div>
+
+        <button type="button" name="button"><a href="/logout">Log Out</a></button>
+
+    </body>
+</html>
